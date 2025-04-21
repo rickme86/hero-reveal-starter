@@ -1,0 +1,33 @@
+# dependencies
+/node_modules/
+
+# production
+/dist/
+
+# local env files
+.env
+.env.*.local
+
+# system files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: OS-specific
+*.swp
+*.swo
+
+# Vercel/Netlify specific (optional)
+/.vercel/
+/.netlify/
+
+# Framer-specific (if applicable)
+/framer/
