@@ -1,9 +1,7 @@
 import { useMotionValue, useSpring } from "framer-motion"
 import OutlineLayers from "./components/OutlineLayers"
-import GlassMorph from "./components/GlassMorph
-<GlassMorph>
-  <YourTextComponentHere />
-</GlassMorph>
+import GlassMorph from "./components/GlassMorph"
+import { useState } from "react"
 
 export default function App() {
   const mouseX = useMotionValue(0)
@@ -18,10 +16,42 @@ export default function App() {
   }
 
   return (
-    <div onMouseMove={handleMouseMove} style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
+    <div
+      onMouseMove={handleMouseMove}
+      style={{
+        position: "relative",
+        width: "100vw",
+        height: "100vh",
+        overflow: "hidden",
+        background: "#0f0914",
+      }}
+    >
+      {/* 🧠 Outline Parallax Layers */}
       <OutlineLayers mouseX={mouseX} mouseY={mouseY} pulseValue={pulse} />
 
-      {/* You can also layer your 3D Canvas here */}
+      {/* 💠 Glass Morph Rectangle */}
+      <GlassMorph>
+        <div
+          style={{
+            fontSize: "clamp(8vw, 10vw, 12vw)",
+            fontFamily: "'Broadacre Light 4', sans-serif",
+            color: "#F9EADC",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            pointerEvents: "none",
+            gap: "2vw",
+            zIndex: 5,
+            position: "relative",
+          }}
+        >
+          <span style={{ transform: "translateY(-10%)" }}>BEY</span>
+          <span style={{ width: "6vw" }} />
+          <span style={{ transform: "translateY(-10%)" }}>ND</span>
+        </div>
+      </GlassMorph>
+
+      {/* 🪐 3D canvas slot (if using WebGL separately) */}
       <canvas id="webgl-canvas" />
     </div>
   )
