@@ -1,13 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3D Hero Reveal</title>
+    <title>Beyond 3D</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        background-color: black;
+      }
+
+      iframe {
+        border: none;
+        width: 100vw;
+        height: 100vh;
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <iframe
+  src="https://webgl.rickmerks.nl"
+  title="3D Beyond Experience"
+  allowfullscreen
+></iframe>
   </body>
 </html>
