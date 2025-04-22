@@ -1,5 +1,9 @@
 import { useMotionValue, useSpring } from "framer-motion"
 import OutlineLayers from "./components/OutlineLayers"
+import GlassMorph from "./components/GlassMorph
+<GlassMorph>
+  <YourTextComponentHere />
+</GlassMorph>
 
 export default function App() {
   const mouseX = useMotionValue(0)
