@@ -1,5 +1,4 @@
 import { useMotionValue, useSpring } from "framer-motion"
-import { useEffect } from "react"
 import OutlineLayers from "./components/OutlineLayers"
 import GlassMorph from "./components/GlassMorph"
 
@@ -7,13 +6,6 @@ export default function App() {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
   const pulse = useSpring(1, { stiffness: 60, damping: 10 })
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      pulse.set(Math.random() * 0.2 + 0.9) // causes pulsing between ~0.9-1.1
-    }, 2000)
-    return () => clearInterval(interval)
-  }, [pulse])
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const x = e.clientX / window.innerWidth - 0.5
@@ -34,32 +26,43 @@ export default function App() {
         fontFamily: "'Broadacre Light 4', sans-serif",
       }}
     >
-      {/* 🧠 Outline Parallax Layers */}
+      {/* Outlined Animated Text */}
       <OutlineLayers mouseX={mouseX} mouseY={mouseY} pulseValue={pulse} />
 
-      {/* 💠 Morphing Glass Panel with Text */}
-      <GlassMorph pulseValue={pulse}>
+      {/* Glass Morph Highlight Text */}
+      <GlassMorph>
         <div
           style={{
-            fontSize: "clamp(8vw, 10vw, 12vw)",
+            fontSize: "clamp(4rem, 10vw, 12rem)",
             color: "#F9EADC",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            pointerEvents: "none",
             gap: "2vw",
             zIndex: 5,
-            position: "relative",
+            pointerEvents: "none",
+            width: "100%",
+            height: "100%",
           }}
         >
-          <span style={{ transform: "translateY(-10%)" }}>BEY</span>
+          <span>BEY</span>
           <span style={{ width: "6vw" }} />
-          <span style={{ transform: "translateY(-10%)" }}>ND</span>
+          <span>ND</span>
         </div>
       </GlassMorph>
 
-      {/* 🪐 3D/WebGL Canvas if you're embedding */}
-      <canvas id="webgl-canvas" style={{ position: "absolute", inset: 0, zIndex: 1 }} />
+      {/* Optional 3D Canvas */}
+      <canvas
+        id="webgl-canvas"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          width: "100%",
+          height: "100%",
+          pointerEvents: "none",
+        }}
+      />
     </div>
   )
 }
