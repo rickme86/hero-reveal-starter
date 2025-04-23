@@ -14,7 +14,9 @@ html, body, #root {
   height: 100%;
   font-family: 'Broadacre Light 4', sans-serif;
   background-color: #0f0914;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
 }
 @media (max-width: 768px) {
   .desktop-merged {
@@ -86,4 +88,10 @@ html, body, #root {
     line-height: 1.2;
   }
 }
+.radial-mask {
+  mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+}
+
+
 
