@@ -1,4 +1,5 @@
 /* Load your custom font */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;700&display=swap');
 @font-face {
   font-family: 'Broadacre Light 4';
   src: url('/fonts/BROADACRE_LIGHT_2.woff2') format('woff2');
@@ -15,3 +16,74 @@ html, body, #root {
   background-color: #0f0914;
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  .desktop-merged {
+    display: none !important;
+  }
+
+  .mobile-beyond {
+    display: block !important;
+    text-align: center;
+  }
+}
+
+.depth-label {
+  position: absolute;
+  top: 25vh;
+  left: -10vw;
+  font-size: 2rem;
+  font-weight: 200;
+  font-style: italic;
+  font-family: 'Source Sans 3', sans-serif;
+  color: #f9eadc;
+  z-index: 3;
+  animation: fadeInMove 1.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes fadeInMove {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal-wrapper {
+  position: absolute;
+  bottom: -65vh;
+  right: -10vw;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.reveal-text {
+  font-family: 'Source Sans 3', sans-serif;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 2rem;
+  color: #f9eadc;
+  display: inline-block;
+  transform: translateY(50%);
+  animation: slideInReveal 1.2s ease-out forwards;
+  animation-delay: 1.2s;
+  opacity: 0;
+}
+
+@keyframes slideInReveal {
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    overflow: hidden; /* Prevent scrollbars */
+  }
+
+  .depth-label,
+  .reveal-wrapper {
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+}
+
